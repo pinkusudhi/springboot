@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +16,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDto {
-    @JsonIgnore
+public class StudentDto implements Serializable {
     private Long id;
     private String name;
     private String email;
@@ -29,5 +29,6 @@ public class StudentDto {
 
 
     private List<TeacherDto> teacher;
+
 
 }

@@ -58,4 +58,14 @@ public class StrudentController {
         }
         return null;
     }
+    @PutMapping("Update")
+    public StudentDto UpdateStudentWithTeacherDetails(@RequestBody StudentDto studentDto,@RequestParam Long id)
+    {
+        StudentDto studentDto1=this.studentservice.UpdateStudentWithTeacher(studentDto,id);
+        if (studentDto1!=null)
+        {
+            return studentDto;
+        }
+        return null;
+    }
 }

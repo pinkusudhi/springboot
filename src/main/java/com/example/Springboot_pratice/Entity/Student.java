@@ -30,7 +30,7 @@ public class Student {
     private Date enrollmentDate;
     private double cgpa;
 
-    @OneToMany(mappedBy = "student",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<Teacher> teacher;
 
     @PrePersist
@@ -39,4 +39,9 @@ public class Student {
         this.enrollmentDate=new Date();
     }
 
+    @PreUpdate
+    protected void updateonroll()
+    {
+        this.enrollmentDate=new Date();
+    }
 }

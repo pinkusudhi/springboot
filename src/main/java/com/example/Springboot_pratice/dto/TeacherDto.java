@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeacherDto implements Serializable {
-
+    private Long id;
     private String name;
     private String email;
     private String phoneNumber;

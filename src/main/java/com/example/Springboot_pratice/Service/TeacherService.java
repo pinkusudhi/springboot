@@ -5,9 +5,11 @@ import com.example.Springboot_pratice.Entity.Teacher;
 import com.example.Springboot_pratice.Repo.StudentRepo;
 import com.example.Springboot_pratice.Repo.TeacherRepository;
 import com.example.Springboot_pratice.dto.TeacherDto;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,7 @@ public class TeacherService {
 
 
 
+    @Transactional
     public List<TeacherDto> SaveTecherwithStudentId(List<TeacherDto> teacherDto) {
         List<TeacherDto> teacherDtos = new ArrayList<>();
         List<Teacher> teachers = new ArrayList<>();
@@ -54,6 +57,7 @@ public class TeacherService {
                 teacher.setEmployeeId(teacherDto1.getEmployeeId());
                 teacher.setSubject(teacherDto1.getSubject());
                 teacher.setSalary(teacherDto1.getSalary());
+                teacher.setHireDate(teacherDto1.getHireDate());
                 teacher.setStudent(student); // Set the existing student
 
                 teachers.add(teacher);
